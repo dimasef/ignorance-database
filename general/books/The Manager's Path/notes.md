@@ -202,3 +202,13 @@ Stay curious and open-minded—mentoring helps you question your assumptions, un
 - How much structure is enough before mentoring starts feeling too rigid?
 - What are the earliest signs that a technically strong person is drifting into "alpha geek" behavior?
 - How should mentoring be recognized and rewarded inside a team without turning it into a checkbox exercise?
+
+## Chapter 3. Tech Lead
+
+**EN:**
+A tech lead is not just the strongest engineer, but someone who combines technical skills with communication, prioritization, and ownership to drive the team forward. The role is about leading projects, making decisions, mentoring others, and collaborating across teams—focusing on overall team impact rather than just writing code.
+
+**UA:**
+Техлід — це не просто найсильніший інженер, а людина, яка поєднує технічні навички з комунікацією, пріоритизацією та відповідальністю за результат команди. Його роль — вести проєкти, приймати рішення, менторити інших і взаємодіяти з різними командами, фокусуючись на загальному результаті, а не лише на коді.
+
+### 3.1 All Great Tech Leads Know This One Weird Trick
