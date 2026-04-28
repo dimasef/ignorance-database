@@ -5,7 +5,7 @@
 The page arrives as empty HTML; all rendering happens in the browser after JS loads.
 
 **Pros:**
-- Full interactivity immediately after hydration
+- Full interactivity immediately after initial render
 - Cheap to host — can be served from a static CDN
 - Good for authenticated apps (dashboards, personal accounts)
 
@@ -112,16 +112,23 @@ revalidatePath('/blog/[slug]');
 
 ## PPR — Partial Prerendering
 
-Experimental feature in Next.js 15. The page is split into a static shell (rendered at build time) and dynamic islands (streamed on request via `<Suspense>`).
+Experimental feature introduced in Next.js 14. The page component itself is static (pre-rendered at build time); `<Suspense>` boundaries mark dynamic islands that are streamed on request.
 
 ```tsx
+// next.config.ts
+experimental: {
+  ppr: true,
+}
+
+// app/page.tsx
 export default function Page() {
   return (
-    <StaticShell> {/* pre-rendered at build time */}
+    <>
+      <StaticContent /> {/* pre-rendered at build time */}
       <Suspense fallback={<Skeleton />}>
         <DynamicContent /> {/* streamed on request */}
       </Suspense>
-    </StaticShell>
+    </>
   );
 }
 ```
@@ -151,7 +158,7 @@ export default function Page() {
 
 | | CSR | SSR | SSG | ISR | PPR |
 |---|---|---|---|---|---|
-| TTFB | Slow | Medium | Fast | Fast | Fast |
+| TTFB | Fast | Medium | Fast | Fast | Fast |
 | SEO | Poor | Good | Excellent | Excellent | Excellent |
 | Data freshness | Real-time | Real-time | At build | By TTL | Mixed |
 | Server load | None | High | None | Low | Low |
